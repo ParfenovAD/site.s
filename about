@@ -1,0 +1,552 @@
+// База данных автомобилей
+const carDatabase = {
+    toyota: {
+        name: "Toyota",
+        models: {
+            camry: {
+                name: "Camry",
+                years: [2024, 2023, 2022, 2021, 2020, 2019, 2018, 2017, 2016, 2015],
+                specs: {
+                    pcd: "5x114.3",
+                    diameter: "17-19",
+                    width: "7-8J",
+                    et: "35-45",
+                    centerbore: "60.1"
+                },
+                image: "images/cars/toyota-camry.png"
+            },
+            rav4: {
+                name: "RAV4",
+                years: [2024, 2023, 2022, 2021, 2020, 2019, 2018, 2017, 2016],
+                specs: {
+                    pcd: "5x114.3",
+                    diameter: "17-19",
+                    width: "7-8J",
+                    et: "35-45",
+                    centerbore: "60.1"
+                },
+                image: "images/cars/toyota-rav4.png"
+            },
+            corolla: {
+                name: "Corolla",
+                years: [2024, 2023, 2022, 2021, 2020, 2019, 2018, 2017, 2016, 2015, 2014],
+                specs: {
+                    pcd: "5x100",
+                    diameter: "15-17",
+                    width: "6-7J",
+                    et: "35-45",
+                    centerbore: "54.1"
+                },
+                image: "images/cars/toyota-corolla.png"
+            }
+        }
+    },
+    bmw: {
+        name: "BMW",
+        models: {
+            "3series": {
+                name: "3 Series",
+                years: [2024, 2023, 2022, 2021, 2020, 2019, 2018, 2017, 2016, 2015],
+                specs: {
+                    pcd: "5x112",
+                    diameter: "17-20",
+                    width: "7.5-9J",
+                    et: "25-40",
+                    centerbore: "72.6"
+                },
+                image: "images/cars/bmw-3series.png"
+            },
+            "5series": {
+                name: "5 Series",
+                years: [2024, 2023, 2022, 2021, 2020, 2019, 2018, 2017, 2016, 2015, 2014],
+                specs: {
+                    pcd: "5x112",
+                    diameter: "17-20",
+                    width: "7.5-9J",
+                    et: "25-40",
+                    centerbore: "72.6"
+                },
+                image: "images/cars/bmw-5series.png"
+            },
+            x5: {
+                name: "X5",
+                years: [2024, 2023, 2022, 2021, 2020, 2019, 2018, 2017, 2016, 2015],
+                specs: {
+                    pcd: "5x120",
+                    diameter: "18-22",
+                    width: "8-10J",
+                    et: "30-45",
+                    centerbore: "74.1"
+                },
+                image: "images/cars/bmw-x5.png"
+            }
+        }
+    },
+    mercedes: {
+        name: "Mercedes-Benz",
+        models: {
+            cclass: {
+                name: "C-Class",
+                years: [2024, 2023, 2022, 2021, 2020, 2019, 2018, 2017, 2016, 2015],
+                specs: {
+                    pcd: "5x112",
+                    diameter: "17-19",
+                    width: "7.5-8.5J",
+                    et: "35-50",
+                    centerbore: "66.6"
+                },
+                image: "images/cars/mercedes-cclass.png"
+            },
+            eclass: {
+                name: "E-Class",
+                years: [2024, 2023, 2022, 2021, 2020, 2019, 2018, 2017, 2016, 2015, 2014],
+                specs: {
+                    pcd: "5x112",
+                    diameter: "17-20",
+                    width: "7.5-9J",
+                    et: "35-50",
+                    centerbore: "66.6"
+                },
+                image: "images/cars/mercedes-eclass.png"
+            }
+        }
+    },
+    audi: {
+        name: "Audi",
+        models: {
+            a4: {
+                name: "A4",
+                years: [2024, 2023, 2022, 2021, 2020, 2019, 2018, 2017, 2016],
+                specs: {
+                    pcd: "5x112",
+                    diameter: "17-19",
+                    width: "7.5-8.5J",
+                    et: "35-45",
+                    centerbore: "66.6"
+                },
+                image: "images/cars/audi-a4.png"
+            },
+            a6: {
+                name: "A6",
+                years: [2024, 2023, 2022, 2021, 2020, 2019, 2018, 2017, 2016, 2015],
+                specs: {
+                    pcd: "5x112",
+                    diameter: "17-20",
+                    width: "7.5-9J",
+                    et: "35-45",
+                    centerbore: "66.6"
+                },
+                image: "images/cars/audi-a6.png"
+            },
+            q5: {
+                name: "Q5",
+                years: [2024, 2023, 2022, 2021, 2020, 2019, 2018, 2017, 2016, 2015],
+                specs: {
+                    pcd: "5x112",
+                    diameter: "18-20",
+                    width: "7.5-9J",
+                    et: "30-45",
+                    centerbore: "66.6"
+                },
+                image: "images/cars/audi-q5.png"
+            }
+        }
+    },
+    volkswagen: {
+        name: "Volkswagen",
+        models: {
+            passat: {
+                name: "Passat",
+                years: [2024, 2023, 2022, 2021, 2020, 2019, 2018, 2017, 2016, 2015],
+                specs: {
+                    pcd: "5x112",
+                    diameter: "16-18",
+                    width: "7-8J",
+                    et: "40-50",
+                    centerbore: "57.1"
+                },
+                image: "images/cars/vw-passat.png"
+            },
+            tiguan: {
+                name: "Tiguan",
+                years: [2024, 2023, 2022, 2021, 2020, 2019, 2018, 2017, 2016],
+                specs: {
+                    pcd: "5x112",
+                    diameter: "17-19",
+                    width: "7-8J",
+                    et: "40-50",
+                    centerbore: "57.1"
+                },
+                image: "images/cars/vw-tiguan.png"
+            },
+            golf: {
+                name: "Golf",
+                years: [2024, 2023, 2022, 2021, 2020, 2019, 2018, 2017, 2016, 2015, 2014],
+                specs: {
+                    pcd: "5x112",
+                    diameter: "15-18",
+                    width: "6.5-7.5J",
+                    et: "45-50",
+                    centerbore: "57.1"
+                },
+                image: "images/cars/vw-golf.png"
+            }
+        }
+    }
+};
+
+// База данных дисков
+const wheelsDatabase = [
+    {
+        id: 1,
+        name: "Модель VS505",
+        brand: "VS",
+        price: 15000,
+        diameter: "18",
+        pcd: "5x114.3",
+        width: "8J",
+        et: "45",
+        centerbore: "73.1",
+        image: "images/wheel1.jpg",
+        description: "Стильные литые диски для премиальных автомобилей",
+        compatibleWith: ["toyota", "nissan", "honda"]
+    },
+    {
+        id: 2,
+        name: "Модель FF107",
+        brand: "FF",
+        price: 12000,
+        diameter: "17",
+        pcd: "5x114.3",
+        width: "7.5J",
+        et: "42",
+        centerbore: "73.1",
+        image: "images/wheel2.jpg",
+        description: "Спортивные диски с агрессивным дизайном",
+        compatibleWith: ["toyota", "nissan", "honda", "mazda"]
+    },
+    {
+        id: 3,
+        name: "Модель AM202",
+        brand: "AM",
+        price: 18000,
+        diameter: "19",
+        pcd: "5x112",
+        width: "8.5J",
+        et: "35",
+        centerbore: "66.6",
+        image: "images/wheel3.jpg",
+        description: "Элегантные диски для городских автомобилей",
+        compatibleWith: ["bmw", "mercedes", "audi", "volkswagen"]
+    },
+    {
+        id: 4,
+        name: "Модель VS606",
+        brand: "VS",
+        price: 20000,
+        diameter: "20",
+        pcd: "5x120",
+        width: "9J",
+        et: "40",
+        centerbore: "74.1",
+        image: "images/wheel4.jpg",
+        description: "Премиальные диски большого диаметра",
+        compatibleWith: ["bmw", "landrover"]
+    },
+    {
+        id: 5,
+        name: "Модель FF205",
+        brand: "FF",
+        price: 11000,
+        diameter: "16",
+        pcd: "4x100",
+        width: "7J",
+        et: "45",
+        centerbore: "54.1",
+        image: "images/wheel5.jpg",
+        description: "Бюджетные спортивные диски",
+        compatibleWith: ["toyota", "honda"]
+    },
+    {
+        id: 6,
+        name: "Модель AM315",
+        brand: "AM",
+        price: 22000,
+        diameter: "19",
+        pcd: "5x112",
+        width: "8.5J",
+        et: "32",
+        centerbore: "66.6",
+        image: "images/wheel6.jpg",
+        description: "Эксклюзивные диски премиум-класса",
+        compatibleWith: ["audi", "mercedes", "volkswagen"]
+    }
+];
+
+// Класс для подбора автомобиля
+class CarSelector {
+    constructor() {
+        this.currentStep = 1;
+        this.selectedBrand = null;
+        this.selectedModel = null;
+        this.selectedYear = null;
+        this.selectedCarSpecs = null;
+    }
+
+    init() {
+        console.log('CarSelector инициализирован');
+        this.setupEventListeners();
+        this.goToStep(1);
+    }
+
+    setupEventListeners() {
+        // Выбор марки
+        document.querySelectorAll('.brand-card').forEach(card => {
+            card.addEventListener('click', (e) => {
+                e.preventDefault();
+                const brand = card.getAttribute('data-brand');
+                console.log('Выбрана марка:', brand);
+                this.selectBrand(brand);
+            });
+        });
+
+        // Улучшенные кнопки назад - обрабатываем все кнопки с классом back-btn
+        document.addEventListener('click', (e) => {
+            const backBtn = e.target.closest('.back-btn');
+            if (backBtn) {
+                e.preventDefault();
+                e.stopPropagation();
+                this.handleBackButton();
+            }
+        });
+    }
+
+    // Обработчик кнопки "Назад"
+    handleBackButton() {
+        console.log('Нажата кнопка назад, текущий шаг:', this.currentStep);
+        
+        switch(this.currentStep) {
+            case 2:
+                this.goToStep(1);
+                break;
+            case 3:
+                this.goToStep(2);
+                break;
+            case 4:
+                this.goToStep(3);
+                break;
+            default:
+                this.goToStep(1);
+        }
+    }
+
+    selectBrand(brand) {
+        this.selectedBrand = brand;
+        this.showModels(brand);
+        this.goToStep(2);
+    }
+
+    showModels(brand) {
+        const brandData = carDatabase[brand];
+        const modelsGrid = document.getElementById('modelsGrid');
+        const selectedBrandElement = document.getElementById('selectedBrand');
+        
+        if (!brandData || !modelsGrid) {
+            console.error('Данные марки или контейнер моделей не найдены');
+            return;
+        }
+        
+        selectedBrandElement.textContent = brandData.name;
+        
+        modelsGrid.innerHTML = '';
+        
+        Object.keys(brandData.models).forEach(modelKey => {
+            const model = brandData.models[modelKey];
+            const modelCard = document.createElement('div');
+            modelCard.className = 'model-card';
+            modelCard.setAttribute('data-model', modelKey);
+            modelCard.innerHTML = `
+                <img src="${model.image}" alt="${model.name}" style="width: 120px; height: 80px; object-fit: contain;" onerror="this.style.display='none'">
+                <span>${model.name}</span>
+            `;
+            modelCard.addEventListener('click', () => {
+                this.selectModel(modelKey, model);
+            });
+            modelsGrid.appendChild(modelCard);
+        });
+    }
+
+    selectModel(modelKey, model) {
+        this.selectedModel = modelKey;
+        this.showYears(model);
+        this.goToStep(3);
+    }
+
+    showYears(model) {
+        const yearsGrid = document.getElementById('yearsGrid');
+        const selectedModelElement = document.getElementById('selectedModel');
+        
+        selectedModelElement.textContent = model.name;
+        
+        yearsGrid.innerHTML = '';
+        
+        model.years.sort((a, b) => b - a).forEach(year => {
+            const yearCard = document.createElement('div');
+            yearCard.className = 'year-card';
+            yearCard.innerHTML = `<span>${year}</span>`;
+            yearCard.addEventListener('click', () => {
+                this.selectYear(year, model);
+            });
+            yearsGrid.appendChild(yearCard);
+        });
+    }
+
+    selectYear(year, model) {
+        this.selectedYear = year;
+        this.selectedCarSpecs = model.specs;
+        this.showResults();
+        this.goToStep(4);
+    }
+
+    showResults() {
+        const selectedCarElement = document.getElementById('selectedCar');
+        const resultPCD = document.getElementById('resultPCD');
+        const resultDiameter = document.getElementById('resultDiameter');
+        const resultWidth = document.getElementById('resultWidth');
+        const resultET = document.getElementById('resultET');
+        const resultCenterbore = document.getElementById('resultCenterbore');
+        
+        const brandName = carDatabase[this.selectedBrand].name;
+        const modelName = carDatabase[this.selectedBrand].models[this.selectedModel].name;
+        
+        selectedCarElement.textContent = `${brandName} ${modelName} ${this.selectedYear}`;
+        
+        // Показываем параметры авто
+        resultPCD.textContent = this.selectedCarSpecs.pcd;
+        resultDiameter.textContent = this.selectedCarSpecs.diameter;
+        resultWidth.textContent = this.selectedCarSpecs.width;
+        resultET.textContent = this.selectedCarSpecs.et;
+        resultCenterbore.textContent = this.selectedCarSpecs.centerbore;
+        
+        // Обновляем кнопки в результатах
+        this.updateResultButtons();
+        
+        // Показываем подходящие диски
+        this.showSuitableWheels();
+    }
+
+    // Обновление кнопок на шаге результатов
+    updateResultButtons() {
+        const resultActions = document.querySelector('.result-actions');
+        if (resultActions) {
+            resultActions.innerHTML = `
+                <button class="btn btn-primary" onclick="showAllSuitableWheels()">Показать все подходящие диски</button>
+                <button class="btn btn-outline back-btn">← Назад</button>
+            `;
+        }
+    }
+
+    showSuitableWheels() {
+        const suitableWheels = this.findSuitableWheels();
+        const wheelsGrid = document.getElementById('suitableWheelsGrid');
+        
+        if (suitableWheels.length === 0) {
+            wheelsGrid.innerHTML = '<p>К сожалению, подходящих дисков не найдено</p>';
+            return;
+        }
+        
+        wheelsGrid.innerHTML = suitableWheels.slice(0, 4).map(wheel => `
+            <div class="wheel-card">
+                <img src="${wheel.image}" alt="${wheel.name}" onerror="this.style.display='none'">
+                <h4>${wheel.name}</h4>
+                <p>${wheel.description}</p>
+                <div class="wheel-specs">
+                    <span>PCD: ${wheel.pcd}</span>
+                    <span>Диаметр: ${wheel.diameter}"</span>
+                    <span>ET: ${wheel.et}</span>
+                </div>
+                <div class="wheel-price">${wheel.price.toLocaleString()} ₽</div>
+                <button class="btn btn-primary" onclick="addToCart(${JSON.stringify(wheel).replace(/"/g, '&quot;')})">
+                    В корзину
+                </button>
+            </div>
+        `).join('');
+    }
+
+    findSuitableWheels() {
+        return wheelsDatabase.filter(wheel => {
+            return wheel.pcd === this.selectedCarSpecs.pcd;
+        });
+    }
+
+    goToStep(step) {
+        console.log('Переход к шагу:', step);
+        
+        // Скрываем все шаги
+        document.querySelectorAll('.step-content').forEach(content => {
+            content.classList.remove('active');
+        });
+        
+        document.querySelectorAll('.step').forEach(stepEl => {
+            stepEl.classList.remove('active');
+        });
+        
+        // Показываем нужный шаг
+        const stepContent = document.querySelector(`.step-content[data-step="${step}"]`);
+        const stepElement = document.querySelector(`.step[data-step="${step}"]`);
+        
+        if (stepContent) stepContent.classList.add('active');
+        if (stepElement) stepElement.classList.add('active');
+        
+        this.currentStep = step;
+    }
+
+    startNewSelection() {
+        this.selectedBrand = null;
+        this.selectedModel = null;
+        this.selectedYear = null;
+        this.selectedCarSpecs = null;
+        this.goToStep(1);
+    }
+
+    showAllSuitableWheels() {
+        window.location.href = 'catalog-disks.html?pcd=' + this.selectedCarSpecs.pcd;
+    }
+}
+
+// Глобальные функции
+function initCarSelector() {
+    window.carSelector = new CarSelector();
+    window.carSelector.init();
+}
+
+function startNewSelection() {
+    if (window.carSelector) {
+        window.carSelector.startNewSelection();
+    }
+}
+
+function showAllSuitableWheels() {
+    if (window.carSelector) {
+        window.carSelector.showAllSuitableWheels();
+    }
+}
+
+function quickSearch() {
+    const diameter = document.getElementById('quickDiameter')?.value;
+    const pcd = document.getElementById('quickPCD')?.value;
+    const price = document.getElementById('quickPrice')?.value;
+    
+    if (diameter || pcd || price) {
+        window.location.href = 'catalog-disks.html?search=1&diameter=' + (diameter || '') + '&pcd=' + (pcd || '') + '&price=' + (price || '');
+    } else {
+        window.location.href = 'catalog-disks.html';
+    }
+}
+
+// Инициализация при загрузке
+document.addEventListener('DOMContentLoaded', function() {
+    if (document.querySelector('.car-selector-widget')) {
+        initCarSelector();
+    }
+});
